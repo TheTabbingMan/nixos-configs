@@ -193,9 +193,24 @@
         '';
         search = {
           force = true;
-          default = "brave-search";
+          default = "ddg";
           privateDefault = "ddg";
           engines = {
+            ddg-wai = {
+              name = "DuckDuckGo with ai";
+              urls = [
+                {
+                  template = "https://duckduckgo.com";
+                  params = [
+                    {
+                      name = "q";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+              icon = "${pkgs.super-tiny-icons}/share/icons/SuperTinyIcons/svg/duckduckgo.svg";
+            };
             nix-packages = {
               name = "Nix Packages";
               urls = [
