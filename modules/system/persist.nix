@@ -132,7 +132,6 @@
           "OpenTabletDriver"
           "Plexamp"
           "qBittorrent"
-          "QDirStat"
           "remmina"
           "Ryujinx"
           "screen_ai"
