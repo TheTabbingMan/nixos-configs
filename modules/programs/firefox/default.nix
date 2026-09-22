@@ -228,6 +228,52 @@
                 sha256 = "sha256-pVKBCyiKsVEfWtVHlX3pDUS0JFw2S2CiqQpDdTLhbyE=";
               };
             };
+            duck-ai = {
+              name = "Duck.ai Chat";
+              definedAliases = ["@dai"];
+              urls = [
+                {
+                  template = "https://duck.ai/chat";
+                  params = [
+                    {
+                      name = "ia";
+                      value = "chat";
+                    }
+                    {
+                      name = "home";
+                      value = "1";
+                    }
+                    {
+                      name = "prompt";
+                      value = "1";
+                    }
+                    {
+                      name = "q";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+                # Auto-complete suggestions URL
+                {
+                  type = "application/x-suggestions+json";
+                  template = "https://duckduckgo.com/ac/";
+                  params = [
+                    {
+                      name = "q";
+                      value = "{searchTerms}";
+                    }
+                    {
+                      name = "type";
+                      value = "list";
+                    }
+                  ];
+                }
+              ];
+              icon = pkgs.fetchurl {
+                url = "https://duckduckgo.com/assets/logo_header.v109.svg";
+                sha256 = "sha256-pVKBCyiKsVEfWtVHlX3pDUS0JFw2S2CiqQpDdTLhbyE=";
+              };
+            };
             nix-packages = {
               name = "Nix Packages";
               urls = [
