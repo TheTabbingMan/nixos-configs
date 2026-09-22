@@ -193,7 +193,7 @@
         '';
         search = {
           force = true;
-          default = "ddg";
+          default = "ddg-wai";
           privateDefault = "ddg";
           engines = {
             ddg-wai = {
@@ -208,8 +208,25 @@
                     }
                   ];
                 }
+                {
+                  type = "application/x-suggestions+json";
+                  template = "https://duckduckgo.com/ac/";
+                  params = [
+                    {
+                      name = "q";
+                      value = "{searchTerms}";
+                    }
+                    {
+                      name = "type";
+                      value = "list";
+                    }
+                  ];
+                }
               ];
-              icon = "${pkgs.super-tiny-icons}/share/icons/SuperTinyIcons/svg/duckduckgo.svg";
+              icon = pkgs.fetchurl {
+                url = "https://duckduckgo.com/assets/logo_header.v109.svg";
+                sha256 = "sha256-pVKBCyiKsVEfWtVHlX3pDUS0JFw2S2CiqQpDdTLhbyE=";
+              };
             };
             nix-packages = {
               name = "Nix Packages";
