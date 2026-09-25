@@ -19,10 +19,15 @@
       enable = true;
       uninstallUnmanaged = true;
       update.onActivation = true;
+
       # Some packages are in gaming
       packages = [
         "com.github.tchx84.Flatseal"
         "io.github.tntwise.REAL-Video-Enhancer"
+        {
+          flatpakref = "https://kolbyml.github.io/Manatan/io.github.kolbyml.Manatan.flatpakref";
+          sha256 = "0qywx6d2v0hsq748mps1s5yrjn5d21d02msa7qc0pwr6v3qpl38i";
+        }
       ];
       overrides = {
         "io.github.tntwise.REAL-Video-Enhancer".Context = {
