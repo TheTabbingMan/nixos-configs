@@ -274,6 +274,44 @@
                 sha256 = "sha256-pVKBCyiKsVEfWtVHlX3pDUS0JFw2S2CiqQpDdTLhbyE=";
               };
             };
+            gemini = {
+              name = "Google Gemini Search";
+              definedAliases = ["@gem"];
+              urls = [
+                {
+                  template = "https://www.google.com/search";
+                  params = [
+                    {
+                      name = "udm";
+                      value = "50"; # Forces Gemini AI Mode
+                    }
+                    {
+                      name = "q";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+                # Official Google search auto-complete suggestions
+                {
+                  type = "application/x-suggestions+json";
+                  template = "https://suggestqueries.google.com/complete/search";
+                  params = [
+                    {
+                      name = "client";
+                      value = "firefox";
+                    }
+                    {
+                      name = "q";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+              icon = pkgs.fetchurl {
+                url = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/google-gemini.svg";
+                sha256 = "sha256-zaLfZjHV+iJ94/oE7XjPNU+RC6kqnwhudFVlXBCtnQk=";
+              };
+            };
             nix-packages = {
               name = "Nix Packages";
               urls = [
