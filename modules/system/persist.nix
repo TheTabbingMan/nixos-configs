@@ -127,6 +127,7 @@
           "kopia-ui"
           "koreader"
           "libreoffice"
+          "MangoHud"
           "mozc"
           "niri/dms"
           "nix"
