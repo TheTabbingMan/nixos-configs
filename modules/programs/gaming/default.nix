@@ -49,6 +49,7 @@
       }
       "xyz.rust4diva.Rust4Diva"
       "com.usebottles.bottles"
+      "net.retrodeck.retrodeck"
     ];
   };
 }

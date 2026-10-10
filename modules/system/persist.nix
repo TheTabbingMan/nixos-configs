@@ -75,6 +75,7 @@
           "Pictures"
           "Videos"
           "Coding"
+          "retrodeck"
           {
             directory = ".local/share/keyrings";
             mode = "0700";
@@ -146,6 +147,7 @@
           "org.flybywiresim.installer"
           "xyz.rust4diva.Rust4Diva"
           "io.github.kolbyml.Manatan"
+          "net.retrodeck.retrodeck"
         ];
       files =
         [
