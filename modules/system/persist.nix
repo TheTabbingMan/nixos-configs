@@ -127,6 +127,7 @@
           "kopia-ui"
           "koreader"
           "libreoffice"
+          "lsfg-vk"
           "MangoHud"
           "mozc"
           "niri/dms"
