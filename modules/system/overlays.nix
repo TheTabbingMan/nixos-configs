@@ -18,9 +18,9 @@
         #     hash = "sha256-m1axR0HrqHfoz+1tvhCOr1xq0lVkHjxrrf2KnTA7ZVg=";
         #   };
         # };
-        video2x = prev.video2x.override {
-          ffmpeg = prev.ffmpeg.override {withPlacebo = true;};
-        };
+        # video2x = prev.video2x.override {
+        #   ffmpeg = prev.ffmpeg.override {withPlacebo = true;};
+        # };
         # Taken from https://github.com/rumboon/dolphin-overlay
         kdePackages = prev.kdePackages.overrideScope (kfinal: kprev: {
           dolphin = prev.symlinkJoin {
