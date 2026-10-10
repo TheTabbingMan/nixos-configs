@@ -50,6 +50,8 @@
       "xyz.rust4diva.Rust4Diva"
       "com.usebottles.bottles"
       "org.freedesktop.Platform.VulkanLayer.MangoHud//25.08"
+      "org.freedesktop.Platform.VulkanLayer.lsfgvk//24.08"
+      "org.freedesktop.Platform.VulkanLayer.lsfgvk//25.08"
       "net.retrodeck.retrodeck"
     ];
   };
