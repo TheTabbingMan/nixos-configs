@@ -42,7 +42,7 @@
         linuxWallpaperEngine.enable = true;
         powerUsagePlugin.enable = true;
         nvidiaGpuMonitor.enable = true;
-        tailscale.enable = true;
+        # tailscale.enable = true;
         dankDesktopWeather.enable = true;
       };
       settings = lib.mapAttrs (_: lib.mkForce) {
