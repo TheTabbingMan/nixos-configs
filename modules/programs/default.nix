@@ -100,6 +100,7 @@
         "application/pdf" = "librewolf.desktop";
         "application/zip" = "org.kde.ark.desktop";
         "application/x-rar" = "org.kde.ark.desktop";
+        "video/matroska" = "mpv.desktop";
         "video/x-matroska" = "mpv.desktop";
         "video/mp4" = "mpv.desktop";
         "audio/x-wav" = "mpv.desktop";
