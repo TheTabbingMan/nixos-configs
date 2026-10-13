@@ -1,4 +1,5 @@
 {...}: {
+  # , qpwgraph
   flake.nixosModules.system = {...}: {
     # Enable sound with pipewire.
     security.rtkit.enable = true;
