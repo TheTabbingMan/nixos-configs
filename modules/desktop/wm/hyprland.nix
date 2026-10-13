@@ -39,7 +39,6 @@
       package = null;
       portalPackage = null;
       plugins = [
-        inputs.split-monitor-workspaces.packages.${pkgs.stdenv.hostPlatform.system}.split-monitor-workspaces
         # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
       ];
       settings = {
@@ -262,9 +261,9 @@
             };
           };
           plugin = {
-            split_monitor_workspaces = {
-              enable_wrapping = false;
-            };
+            # split_monitor_workspaces = {
+            #   enable_wrapping = false;
+            # };
           };
           quirks.prefer_hdr = 1;
         };
@@ -349,121 +348,101 @@
               ]
               ++ extraArgs;
           };
-        in
-          [
-            # HDR Keybinds for when auto enable doesn't work
-            (mkBind "${mainMod} + ALT + h"
-              # lua
-              ''
-                function()
-                hl.monitor({
-                    ["output"] = "DP-3",
-                    ["cm"] = "hdr",
-                    ["sdrbrightness"] = 2
-                })
-                end'' [])
-            (mkBind "${mainMod} + ALT + SHIFT + h"
-              # lua
-              ''
-                function()
-                hl.monitor({
-                    ["output"] = "DP-3",
-                    ["cm"] = "srgb"
-                })
-                end'' [])
+        in [
+          # HDR Keybinds for when auto enable doesn't work
+          (mkBind "${mainMod} + ALT + h"
+            # lua
+            ''
+              function()
+              hl.monitor({
+                  ["output"] = "DP-3",
+                  ["cm"] = "hdr",
+                  ["sdrbrightness"] = 2
+              })
+              end'' [])
+          (mkBind "${mainMod} + ALT + SHIFT + h"
+            # lua
+            ''
+              function()
+              hl.monitor({
+                  ["output"] = "DP-3",
+                  ["cm"] = "srgb"
+              })
+              end'' [])
 
-            (mkBind "${mainMod} + c" "hl.dsp.window.close()" [])
-            (mkBind "${mainMod} + m" "hl.dsp.exit()" []) # TODO: Make this hyprshutdown?
+          (mkBind "${mainMod} + c" "hl.dsp.window.close()" [])
+          (mkBind "${mainMod} + m" "hl.dsp.exit()" []) # TODO: Make this hyprshutdown?
 
-            (mkBind "${mainMod} + q" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.ghostty}")'' [])
-            (mkBind "${mainMod} + b" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.librewolf}")'' [])
-            (mkBind "${mainMod} + e" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.ghostty} -e ${lib.getExe pkgs.fish} -i -c ${lib.getExe pkgs.yazi}")'' [])
-            (mkBind "${mainMod} + SHIFT + e" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe' pkgs.kdePackages.dolphin "dolphin"}")'' [])
-            (mkBind "ALT + space" ''hl.dsp.exec_cmd("uwsm app -- ulauncher-toggle")'' [])
-            (mkBind "${mainMod} + ALT + l" ''hl.dsp.exec_cmd("dms ipc call lock lock")'' [])
+          (mkBind "${mainMod} + q" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.ghostty}")'' [])
+          (mkBind "${mainMod} + b" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.librewolf}")'' [])
+          (mkBind "${mainMod} + e" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.ghostty} -e ${lib.getExe pkgs.fish} -i -c ${lib.getExe pkgs.yazi}")'' [])
+          (mkBind "${mainMod} + SHIFT + e" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe' pkgs.kdePackages.dolphin "dolphin"}")'' [])
+          (mkBind "ALT + space" ''hl.dsp.exec_cmd("uwsm app -- ulauncher-toggle")'' [])
+          (mkBind "${mainMod} + ALT + l" ''hl.dsp.exec_cmd("dms ipc call lock lock")'' [])
 
-            (mkBind "${mainMod} + v" "hl.dsp.window.float()" [])
-            # "$mainMod, P, pseudo, # dwindle"
-            # "$mainMod, t, togglesplit, # dwindle"
-            (mkBind "${mainMod} + h" ''hl.dsp.layout("focus l")'' [])
-            (mkBind "${mainMod} + l" ''hl.dsp.layout("focus r")'' [])
-            (mkBind "${mainMod} + k" ''hl.dsp.focus({direction="up"})'' [])
-            (mkBind "${mainMod} + j" ''hl.dsp.focus({direction="down"})'' [])
-            (mkBind "${mainMod} + CTRL + h" ''hl.dsp.focus({monitor = "-1"})'' [])
-            (mkBind "${mainMod} + CTRL + l" ''hl.dsp.focus({monitor = "+1"})'' [])
+          (mkBind "${mainMod} + v" "hl.dsp.window.float()" [])
+          # "$mainMod, P, pseudo, # dwindle"
+          # "$mainMod, t, togglesplit, # dwindle"
+          (mkBind "${mainMod} + h" ''hl.dsp.layout("focus l")'' [])
+          (mkBind "${mainMod} + l" ''hl.dsp.layout("focus r")'' [])
+          (mkBind "${mainMod} + k" ''hl.dsp.focus({direction="up"})'' [])
+          (mkBind "${mainMod} + j" ''hl.dsp.focus({direction="down"})'' [])
+          (mkBind "${mainMod} + CTRL + h" ''hl.dsp.focus({monitor = "-1"})'' [])
+          (mkBind "${mainMod} + CTRL + l" ''hl.dsp.focus({monitor = "+1"})'' [])
 
-            (mkBind "${mainMod} + CTRL + SHIFT + h" ''hl.dsp.window.move({monitor = "-1"})'' [])
-            (mkBind "${mainMod} + CTRL + SHIFT + l" ''hl.dsp.window.move({monitor = "+1"})'' [])
-            (mkBind "${mainMod} + SHIFT + h" ''hl.dsp.layout("swapcol l")'' [])
-            (mkBind "${mainMod} + SHIFT + l" ''hl.dsp.layout("swapcol r")'' [])
-            (mkBind "${mainMod} + SHIFT + k" ''hl.dsp.window.move({direction="up"})'' [])
-            (mkBind "${mainMod} + SHIFT + j" ''hl.dsp.window.move({direction="down"})'' [])
+          (mkBind "${mainMod} + CTRL + SHIFT + h" ''hl.dsp.window.move({monitor = "-1"})'' [])
+          (mkBind "${mainMod} + CTRL + SHIFT + l" ''hl.dsp.window.move({monitor = "+1"})'' [])
+          (mkBind "${mainMod} + SHIFT + h" ''hl.dsp.layout("swapcol l")'' [])
+          (mkBind "${mainMod} + SHIFT + l" ''hl.dsp.layout("swapcol r")'' [])
+          (mkBind "${mainMod} + SHIFT + k" ''hl.dsp.window.move({direction="up"})'' [])
+          (mkBind "${mainMod} + SHIFT + j" ''hl.dsp.window.move({direction="down"})'' [])
 
-            (mkBind "${mainMod} + RIGHT" ''hl.dsp.layout("consume_or_expel next")'' [])
-            (mkBind "${mainMod} + SHIFT + RIGHT" ''hl.dsp.layout("consume_or_expel next")'' [])
-            (mkBind "${mainMod} + LEFT" ''hl.dsp.layout("consume_or_expel prev")'' [])
-            (mkBind "${mainMod} + SHIFT + LEFT" ''hl.dsp.layout("consume_or_expel prev")'' [])
+          (mkBind "${mainMod} + RIGHT" ''hl.dsp.layout("consume_or_expel next")'' [])
+          (mkBind "${mainMod} + SHIFT + RIGHT" ''hl.dsp.layout("consume_or_expel next")'' [])
+          (mkBind "${mainMod} + LEFT" ''hl.dsp.layout("consume_or_expel prev")'' [])
+          (mkBind "${mainMod} + SHIFT + LEFT" ''hl.dsp.layout("consume_or_expel prev")'' [])
 
-            (mkBind "${mainMod} + s" ''hl.dsp.workspace.toggle_special("magic")'' [])
+          (mkBind "${mainMod} + s" ''hl.dsp.workspace.toggle_special("magic")'' [])
 
-            (mkBind "${mainMod} + mouse_up" ''function() return hl.plugin.split_monitor_workspaces.workspace("-1") end'' [])
-            (mkBind "${mainMod} + mouse_down" ''function() return hl.plugin.split_monitor_workspaces.workspace("+1") end'' [])
+          # Scroll through group TODO:
+          # "alt, bracketleft, changegroupactive, b"
+          # "alt, bracketright, changegroupactive, f"
+          # Select specific group TODO:
+          # "alt, 1, changegroupactive, 1"
+          # "alt, 2, changegroupactive, 2"
+          # "alt, 3, changegroupactive, 3"
+          # "alt, 4, changegroupactive, 4"
+          # "alt, 5, changegroupactive, 5"
+          # "alt, 6, changegroupactive, 6"
+          # "alt, 7, changegroupactive, 7"
+          # "alt, 8, changegroupactive, 8"
+          # "alt, 9, changegroupactive, 9"
+          # "alt, 0, changegroupactive, 10"
 
-            # Scroll through group TODO:
-            # "alt, bracketleft, changegroupactive, b"
-            # "alt, bracketright, changegroupactive, f"
-            # Select specific group TODO:
-            # "alt, 1, changegroupactive, 1"
-            # "alt, 2, changegroupactive, 2"
-            # "alt, 3, changegroupactive, 3"
-            # "alt, 4, changegroupactive, 4"
-            # "alt, 5, changegroupactive, 5"
-            # "alt, 6, changegroupactive, 6"
-            # "alt, 7, changegroupactive, 7"
-            # "alt, 8, changegroupactive, 8"
-            # "alt, 9, changegroupactive, 9"
-            # "alt, 0, changegroupactive, 10"
+          (mkBind "print" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.grim} -l 0 -g ${lib.getExe pkgs.slurp} - | ${lib.getExe' pkgs.wl-clipboard "wl-copy"}")'' [])
 
-            (mkBind "print" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.grim} -l 0 -g ${lib.getExe pkgs.slurp} - | ${lib.getExe' pkgs.wl-clipboard "wl-copy"}")'' [])
+          (mkBind "${mainMod} + r" ''hl.dsp.layout("colresize +conf")'' [])
+          (mkBind "${mainMod} + SHIFT + f" "hl.dsp.window.fullscreen()" [])
+          (mkBind "${mainMod} + f" ''hl.dsp.window.fullscreen({mode = "maximized", action = "toggle"})'' [])
 
-            (mkBind "${mainMod} + r" ''hl.dsp.layout("colresize +conf")'' [])
-            (mkBind "${mainMod} + SHIFT + f" "hl.dsp.window.fullscreen()" [])
-            (mkBind "${mainMod} + f" ''hl.dsp.window.fullscreen({mode = "maximized", action = "toggle"})'' [])
+          # TODO: "$mainMod, g, togglegroup"
 
-            # TODO: "$mainMod, g, togglegroup"
+          (mkBind "${mainMod} + mouse:272" "hl.dsp.window.drag()" ["{mouse = true}"])
+          (mkBind "${mainMod} + mouse:273" "hl.dsp.window.resize()" ["{mouse = true}"])
 
-            (mkBind "${mainMod} + mouse:272" "hl.dsp.window.drag()" ["{mouse = true}"])
-            (mkBind "${mainMod} + mouse:273" "hl.dsp.window.resize()" ["{mouse = true}"])
+          (mkBind "XF86AudioRaiseVolume" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 0.02+ -l 1.0")'' ["{repeating = true, locked = true}"])
+          (mkBind "XF86AudioLowerVolume" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 0.02-")'' ["{repeating = true, locked = true}"])
+          (mkBind "XF86AudioMute" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe' pkgs.wireplumber "wpctl"} set-mute @DEFAULT_AUDIO_SINK@ toggle")'' ["{repeating = true, locked = true}"])
+          (mkBind "XF86AudioMicMute" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe' pkgs.wireplumber "wpctl"} set-mute @DEFAULT_AUDIO_SOURCE@ toggle")'' ["{repeating = true, locked = true}"])
 
-            (mkBind "XF86AudioRaiseVolume" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 0.02+ -l 1.0")'' ["{repeating = true, locked = true}"])
-            (mkBind "XF86AudioLowerVolume" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 0.02-")'' ["{repeating = true, locked = true}"])
-            (mkBind "XF86AudioMute" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe' pkgs.wireplumber "wpctl"} set-mute @DEFAULT_AUDIO_SINK@ toggle")'' ["{repeating = true, locked = true}"])
-            (mkBind "XF86AudioMicMute" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe' pkgs.wireplumber "wpctl"} set-mute @DEFAULT_AUDIO_SOURCE@ toggle")'' ["{repeating = true, locked = true}"])
+          (mkBind "XF86MonBrightnessUp" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.brightnessctl} --class=backlight set +10%")'' ["{repeating = true, locked = true}"])
+          (mkBind "XF86MonBrightnessDown" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.brightnessctl} --class=backlight set 10%-")'' ["{repeating = true, locked = true}"])
 
-            (mkBind "XF86MonBrightnessUp" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.brightnessctl} --class=backlight set +10%")'' ["{repeating = true, locked = true}"])
-            (mkBind "XF86MonBrightnessDown" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.brightnessctl} --class=backlight set 10%-")'' ["{repeating = true, locked = true}"])
-
-            (mkBind "XF86AudioPlay" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.playerctl} play-pause")'' ["{locked = true}"])
-            (mkBind "XF86AudioStop" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.playerctl} stop")'' ["{locked = true}"])
-            (mkBind "XF86AudioPrev" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.playerctl} previous")'' ["{locked = true}"])
-            (mkBind "XF86AudioNext" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.playerctl} next")'' ["{locked = true}"])
-          ]
-          ++ (builtins.concatLists (builtins.genList
-            (
-              i: let
-                # Convert 0-9 index to workspace numbers 1-10
-                ws = toString (i + 1);
-                # Map workspace 10 back to the "0" key
-                key =
-                  if ws == "10"
-                  then "0"
-                  else ws;
-              in [
-                (mkBind "${mainMod} + ${key}" "function() return hl.plugin.split_monitor_workspaces.workspace(${ws}) end" [])
-                (mkBind "${mainMod} + SHIFT + ${key}" "function() return hl.plugin.split_monitor_workspaces.move_to_workspace(${ws}) end" [])
-              ]
-            )
-            10));
+          (mkBind "XF86AudioPlay" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.playerctl} play-pause")'' ["{locked = true}"])
+          (mkBind "XF86AudioStop" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.playerctl} stop")'' ["{locked = true}"])
+          (mkBind "XF86AudioPrev" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.playerctl} previous")'' ["{locked = true}"])
+          (mkBind "XF86AudioNext" ''hl.dsp.exec_cmd("uwsm app -- ${lib.getExe pkgs.playerctl} next")'' ["{locked = true}"])
+        ];
 
         ##############################
         ### WINDOWS AND WORKSPACES ###
@@ -499,8 +478,22 @@
       extraConfig =
         # lua
         ''
-          local smw = hl.plugin.split_monitor_workspaces
-          smw.monitor_priority({ "DP-3", "DP-2", "HDMI-A-1"})
+          local smw = require("plugins.split-monitor-workspaces")
+          smw.setup({
+              monitor_priority = { "DP-3", "DP-2", "HDMI-A-1"},
+              enable_wrapping = false,
+          })
+          local mainMod = "SUPER"
+          for i = 1, smw.get_amount_of_workspaces() do
+              local n = tostring(i)
+              if n == "10" then n = "0" end -- Optional if you configured 10 workspaces: bind workspace 10 to SUPER + 0
+              -- Switch to the Nth workspace on the currently focused monitor.
+              hl.bind(mainMod .. " +" .. n, smw.workspace(n))
+              -- Move the active window to the Nth workspace on the currently focused monitor silently (no focus change).
+              hl.bind(mainMod .. " + SHIFT +" .. n, smw.move_to_workspace_silent(n))
+          end
+          hl.bind(mainMod .. " + mouse_down", smw.cycle_workspaces("next"))
+          hl.bind(mainMod .. " + mouse_up", smw.cycle_workspaces("prev"))
         '';
     };
   };
