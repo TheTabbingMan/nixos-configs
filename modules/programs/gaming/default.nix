@@ -37,6 +37,7 @@
       scopebuddy
       lsfg-vk
       lsfg-vk-ui
+      mangohud
     ];
     services.flatpak.packages = [
       rec {
