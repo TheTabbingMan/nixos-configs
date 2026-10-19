@@ -17,7 +17,7 @@
         isNormalUser = true;
         hashedPasswordFile = config.sops.secrets.jonah-password.path;
         description = "${config.preferences.user.name}";
-        extraGroups = ["networkmanager" "wheel" "gamemode"];
+        extraGroups = ["networkmanager" "wheel" "gamemode" "cdrom" "optical"];
       };
       # Enable automatic login for the user.
       # services.displayManager.autoLogin.enable = true;
