@@ -52,6 +52,7 @@
       ouch-rar
       thunderbird
       # video2x
+      filezilla
     ];
 
     dconf.settings = {

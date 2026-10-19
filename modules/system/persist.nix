@@ -118,6 +118,7 @@
           "chromium"
           "eden"
           "fcitx5"
+          "filezilla"
           "freerdp/server" # Required to remember remmina certificates
           "GIMP"
           "heroic"
