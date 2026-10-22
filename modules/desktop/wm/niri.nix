@@ -40,7 +40,7 @@
       # These need to be here so that the stuff started by systemd has them
       ELECTRON_OZONE_PLATFORM_HINT = "auto";
       NIXOS_OZONE_WL = "1"; # support electron and chromium based apps
-      # DISPLAY = ":0"; # important for xwayland-satellite
+      DISPLAY = ":0"; # important for xwayland-satellite
     };
     systemd.user.services.xwayland-satellite = {
       Unit = {
@@ -383,7 +383,6 @@
 
            // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
            // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
-           spawn-sh-at-startup "dbus-update-activation-environment --systemd DISPLAY=:0" // important for xwayland-satellite. Can't be global because it breaks kde plasma
            hotkey-overlay {
                // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
                skip-at-startup
