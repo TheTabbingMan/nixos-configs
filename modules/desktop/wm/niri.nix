@@ -383,7 +383,7 @@
 
            // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
            // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
-
+           spawn-sh-at-startup "dbus-update-activation-environment --systemd DISPLAY=:0" // important for xwayland-satellite. Can't be global because it breaks kde plasma
            hotkey-overlay {
                // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
                skip-at-startup
