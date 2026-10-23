@@ -474,6 +474,9 @@
                Mod+Alt+v hotkey-overlay-title="Enable vrr" { spawn-sh "niri msg output DP-3 vrr ON"; }
                Mod+Alt+Shift+v hotkey-overlay-title="Disable vrr" { spawn-sh "niri msg output DP-3 vrr ON --on-demand"; }
                Mod+Alt+Ctrl+v hotkey-overlay-title="Check vrr" { spawn "vrrcheck"; }
+
+               Mod+Ctrl+s hotkey-overlay-title="Disable dp monitors for sunshine" {spawn-sh "niri msg output DP-2 off && niri msg output DP-3 off"; }
+               Mod+Ctrl+Shift+s hotkey-overlay-title="Enable dp monitors" {spawn-sh "niri msg output DP-2 on && niri msg output DP-3 on"; }
                // Keys consist of modifiers separated by + signs, followed by an XKB key name
                // in the end. To find an XKB name for a particular key, you may use a program
                // like wev.
