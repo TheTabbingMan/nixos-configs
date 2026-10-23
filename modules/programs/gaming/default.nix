@@ -16,6 +16,14 @@
       gamemode.enable = true;
     };
     environment.systemPackages = with pkgs; [gamescope-wsi];
+
+    services.sunshine = {
+      enable = true;
+      package = pkgs.cudaSupported.sunshine;
+      autoStart = true;
+      capSysAdmin = true; # only needed for Wayland -- omit this when using with Xorg
+      openFirewall = true;
+    };
   };
   flake.homeModules.gaming = {pkgs, ...}: {
     home.packages = with pkgs; [
