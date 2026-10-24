@@ -4,7 +4,7 @@
       steam = {
         enable = true;
         # Fixes black screen with pgu acceleration on xwayland-satellite niri
-        package = pkgs.steam.override {
+        package = pkgs.cudaSupported.steam.override {
           extraArgs = "-system-composer";
         };
         gamescopeSession.enable = true;
