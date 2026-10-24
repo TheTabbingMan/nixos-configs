@@ -139,6 +139,7 @@
           "remmina"
           "Ryujinx"
           "screen_ai"
+          "sunshine"
           "solaar"
           "ulauncher"
           "unity3d/Berserk Games/Tabletop Simulator"
