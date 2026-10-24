@@ -11,6 +11,9 @@
         extraCompatPackages = with pkgs; [
           proton-ge-bin
         ];
+        localNetworkGameTransfers.openFirewall = true;
+        remotePlay.openFirewall = true;
+        protontricks.enable = true;
       };
       gamescope.enable = true;
       gamemode.enable = true;
