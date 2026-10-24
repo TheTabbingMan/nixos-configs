@@ -159,7 +159,6 @@
     '';
 
     boot.initrd.systemd = {
-      enable = true; # Default in 26.05
       services.wipe-file-systems = {
         # Specify dependencies explicitly
         unitConfig.DefaultDependencies = false;
