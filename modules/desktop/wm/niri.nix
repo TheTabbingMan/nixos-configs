@@ -477,6 +477,9 @@
 
                Mod+Ctrl+s hotkey-overlay-title="Disable dp monitors for sunshine" {spawn-sh "niri msg output DP-2 off && niri msg output DP-3 off"; }
                Mod+Ctrl+Shift+s hotkey-overlay-title="Enable dp monitors" {spawn-sh "niri msg output DP-2 on && niri msg output DP-3 on"; }
+
+               Mod+Ctrl+d hotkey-overlay-title="Switch to hdmi-1" { spawn-sh "for i in 1 2 3; do ${lib.getExe pkgs.ddcutil} --display 3 setvcp 60 0x11; sleep 0.3; done"; }
+               Mod+Ctrl+Shift+d hotkey-overlay-title="Switch to dp" { spawn-sh "for i in 1 2 3; do ${lib.getExe pkgs.ddcutil} --display 3 setvcp 60 0x0f; sleep 0.3; done"; }
                // Keys consist of modifiers separated by + signs, followed by an XKB key name
                // in the end. To find an XKB name for a particular key, you may use a program
                // like wev.
