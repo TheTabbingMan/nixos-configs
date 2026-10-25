@@ -485,6 +485,7 @@
                match app-id="librewolf"
                match app-id="io.missioncenter.MissionCenter"
                match app-id="com.chatterino."
+               match app-id="org.kde.dolphin"
                opacity 0.9
                background-effect {
                    blur true
