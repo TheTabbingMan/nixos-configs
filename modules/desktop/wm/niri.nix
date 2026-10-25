@@ -470,6 +470,18 @@
                variable-refresh-rate true
            }
 
+           window-rule {
+               draw-border-with-background false
+           }
+
+           window-rule {
+               match app-id="com.mitchellh.ghostty"
+               background-effect {
+                   blur true
+               }
+               draw-border-with-background false
+           }
+
            binds {
                Mod+Alt+v hotkey-overlay-title="Enable vrr" { spawn-sh "niri msg output DP-3 vrr ON"; }
                Mod+Alt+Shift+v hotkey-overlay-title="Disable vrr" { spawn-sh "niri msg output DP-3 vrr ON --on-demand"; }
