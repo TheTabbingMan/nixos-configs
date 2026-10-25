@@ -275,7 +275,7 @@
             itemSpacing = 4;
             margin = 0;
             bottomGap = 0;
-            transparency = 0.2;
+            transparency = 0.9;
             followInterfaceStyle = false;
             autoHide = false;
             smartAutoHide = true;
@@ -332,7 +332,7 @@
         matugenScheme = "scheme-tonal-spot";
         runUserMatugenTemplates = true;
         matugenTargetMonitor = "";
-        popupTransparency = 0.2;
+        popupTransparency = 0.9;
         dmsWindowsFloatingSeeded = [
           "niri"
         ];
