@@ -479,7 +479,15 @@
                background-effect {
                    blur true
                }
-               draw-border-with-background false
+           }
+
+           window-rule {
+               match app-id="librewolf"
+               match app-id="io.missioncenter.MissionCenter"
+               opacity 0.9
+               background-effect {
+                   blur true
+               }
            }
 
            binds {
