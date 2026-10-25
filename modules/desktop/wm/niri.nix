@@ -484,6 +484,7 @@
            window-rule {
                match app-id="librewolf"
                match app-id="io.missioncenter.MissionCenter"
+               match app-id="com.chatterino."
                opacity 0.9
                background-effect {
                    blur true
