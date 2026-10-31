@@ -7,7 +7,7 @@
     imports = [
       # ./dms.nix
     ];
-    services.displayManager.regreet = {
+    programs.regreet = {
       enable = !config.services.displayManager.plasma-login-manager.enable && !config.services.displayManager.gdm.enable;
       cageArgs = ["-s" "-d" "-m" "last"];
     };

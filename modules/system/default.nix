@@ -13,13 +13,14 @@
     config = {
       services.btrfs.autoScrub.enable = true;
 
-      boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
-      specialisation = {
-        lts-kernel.configuration = {
-          system.nixos.tags = ["lts-kernel"];
-          boot.kernelPackages = pkgs.linuxPackages;
-        };
-      };
+      # NOTE: nixpkgs-stable nvidia driver doesn't like latest kernel sometimes
+      # boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+      # specialisation = {
+      #   lts-kernel.configuration = {
+      #     system.nixos.tags = ["lts-kernel"];
+      #     boot.kernelPackages = pkgs.linuxPackages;
+      #   };
+      # };
     };
   };
 }

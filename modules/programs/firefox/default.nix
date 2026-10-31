@@ -399,7 +399,7 @@
                   type = "application/x-suggestions+json";
                 }
               ];
-              icon = "${pkgs.stable.gruvbox-material-gtk-theme}/share/icons/Gruvbox-Material-Dark/64x64/apps/brave.svg";
+              icon = "${pkgs.gruvbox-material-gtk-theme}/share/icons/Gruvbox-Material-Dark/64x64/apps/brave.svg";
               definedAliases = ["@brave"];
             };
             brave-ai = {
@@ -415,7 +415,7 @@
                   ];
                 }
               ];
-              icon = "${pkgs.stable.gruvbox-material-gtk-theme}/share/icons/Gruvbox-Material-Dark/64x64/apps/brave.svg";
+              icon = "${pkgs.gruvbox-material-gtk-theme}/share/icons/Gruvbox-Material-Dark/64x64/apps/brave.svg";
               definedAliases = ["@bai"];
             };
             "policy-Startpage".metaData.alias = "@sp";

@@ -33,7 +33,7 @@
       meld
       kdiff3
       fsearch
-      libreoffice-stable
+      libreoffice-fresh
       anki
       remmina
       chatterino2
