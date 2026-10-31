@@ -23,7 +23,7 @@
       homeModules.gaming
       homeModules.scripts
       homeModules.niri
-      homeModules.dms
+      homeModules.dux
     ];
 
     # Let Home Manager install and manage itself.

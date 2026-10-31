@@ -7,7 +7,7 @@
     imports = [
       inputs.niri.nixosModules.niri
       self.nixosModules.wmCommon
-      self.nixosModules.dms
+      self.nixosModules.dux
     ];
 
     # nixpkgs.overlays = [inputs.niri.overlays.niri];
@@ -34,7 +34,7 @@
   }: {
     imports = [
       self.homeModules.wm
-      self.homeModules.dms
+      self.homeModules.dux
     ];
     home.sessionVariables = {
       # These need to be here so that the stuff started by systemd has them

@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.nixosModules.dms = {
+  flake.nixosModules.dux = {
     pkgs,
     lib,
     config,
@@ -16,23 +16,23 @@
       else "graphical-session.target";
   in {
     imports = [
-      inputs.dms.nixosModules.dank-material-shell
+      inputs.dux.nixosModules.dank-material-shell
     ];
     systemd.user.services.niri-flake-polkit.enable = false;
     programs.dsearch.enable = true;
     programs.dms-shell = {
       enable = true;
-      package = inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      package = inputs.dux.packages.${pkgs.stdenv.hostPlatform.system}.default;
       systemd.target = finalTarget;
       systemd.restartIfChanged = true;
     };
   };
-  flake.homeModules.dms = {lib, ...}: {
+  flake.homeModules.dux = {lib, ...}: {
     imports = [
-      inputs.dms.homeModules.dank-material-shell
-      inputs.dms-plugin-registry.homeModules.default
+      inputs.dux.homeModules.dank-material-shell
+      inputs.dux-plugin-registry.homeModules.default
     ];
-    # Needed to disable the border otherwise dms enables it
+    # Needed to disable the border otherwise dux enables it
     programs.niri.settings.layout.border.enable = false;
     programs.dank-material-shell = {
       enable = true;
