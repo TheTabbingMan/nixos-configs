@@ -53,6 +53,7 @@
       thunderbird
       # video2x
       filezilla
+      nixpkgs-track
     ];
 
     dconf.settings = {
