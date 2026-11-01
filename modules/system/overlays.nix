@@ -36,6 +36,23 @@
             passthru = (kprev.dolphin.passthru or {}) // {dev = kprev.dolphin.dev;};
           };
         });
+        linux-wallpaperengine = prev.linux-wallpaperengine.overrideAttrs (old: {
+          version = "0-unstable-2026-09-29";
+
+          src = prev.fetchFromGitHub {
+            owner = "Almamu";
+            repo = "linux-wallpaperengine";
+            rev = "a0ddce586e9ff12e9d31ca6b103f6036cc1b68fe";
+            fetchSubmodules = true;
+            hash = "sha256-4m+YUvVCN3VzL4/338qW/o4k0la0IJeAUCefHRkHHJk=";
+          };
+          nativeBuildInputs =
+            (old.nativeBuildInputs or [])
+            ++ [
+              prev.dbus
+              prev.freetype
+            ];
+        });
       })
     ];
   };
