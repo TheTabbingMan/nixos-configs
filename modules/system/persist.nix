@@ -116,6 +116,7 @@
           "bcompare5"
           "calibre"
           "chromium"
+          "dms"
           "eden"
           "fcitx5"
           "filezilla"
@@ -195,8 +196,6 @@
           "user-places.xbel"
         ]
         ++ mkPaths ".config" [
-          "DankMaterialShell/plugin_settings.json"
-          "DankMaterialShell/.firstlaunch"
           "dolphinrc"
           "fsearch/fsearch.conf"
           "gwenviewrc"
