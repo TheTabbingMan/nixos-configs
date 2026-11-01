@@ -502,6 +502,9 @@
 
                Mod+Ctrl+d hotkey-overlay-title="Switch to hdmi-1" { spawn-sh "for i in 1 2 3; do ${lib.getExe pkgs.ddcutil} --display 3 setvcp 60 0x11; sleep 0.3; done"; }
                Mod+Ctrl+Shift+d hotkey-overlay-title="Switch to dp" { spawn-sh "for i in 1 2 3; do ${lib.getExe pkgs.ddcutil} --display 3 setvcp 60 0x0f; sleep 0.3; done"; }
+
+               Mod+Ctrl+w hotkey-overlay-title="Enable wallpaper engine" { spawn-sh "dms ipc call plugins enable linuxWallpaperEngine"; }
+               Mod+Ctrl+Shift+w hotkey-overlay-title="Enable wallpaper engine" { spawn-sh "dms ipc call plugins disable linuxWallpaperEngine"; }
                // Keys consist of modifiers separated by + signs, followed by an XKB key name
                // in the end. To find an XKB name for a particular key, you may use a program
                // like wev.
