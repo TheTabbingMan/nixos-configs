@@ -475,9 +475,33 @@
           }
         ];
       };
+      # TODO: extraLuaFiles isn't in nixos-26.05
+      # extraLuaFiles = {
+      #   "globals" = {
+      #     content = builtins.readFile "${inputs.split-monitor-workspaces.outPath}/lua/globals.lua";
+      #     autoLoad = false;
+      #   };
+      #   "helpers" = {
+      #     content = builtins.readFile "${inputs.split-monitor-workspaces.outPath}/lua/helpers.lua";
+      #     autoLoad = false;
+      #   };
+      #   "monitors" = {
+      #     content = builtins.readFile "${inputs.split-monitor-workspaces.outPath}/lua/monitors.lua";
+      #     autoLoad = false;
+      #   };
+      #   "dispatchers" = {
+      #     content = builtins.readFile "${inputs.split-monitor-workspaces.outPath}/lua/dispatchers.lua";
+      #     autoLoad = false;
+      #   };
+      #   "smw" = {
+      #     content = builtins.readFile "${inputs.split-monitor-workspaces.outPath}/lua/split-monitor-workspaces.lua";
+      #     autoLoad = false;
+      #   };
+      # };
       extraConfig =
         # lua
         ''
+          package.path = package.path .. ";./?.lua;./?/init.lua"
           local smw = require("plugins.split-monitor-workspaces")
           smw.setup({
               monitor_priority = { "DP-3", "DP-2", "HDMI-A-1"},
@@ -496,5 +520,6 @@
           hl.bind(mainMod .. " + mouse_up", smw.cycle_workspaces("prev"))
         '';
     };
+    xdg.configFile."hypr/plugins/split-monitor-workspaces".source = inputs.split-monitor-workspaces;
   };
 }
