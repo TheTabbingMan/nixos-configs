@@ -275,7 +275,7 @@
             itemSpacing = 4;
             margin = 0;
             bottomGap = 0;
-            transparency = 0.9;
+            transparency = 0.5;
             followInterfaceStyle = false;
             autoHide = false;
             smartAutoHide = true;
@@ -639,7 +639,7 @@
               "weather"
             ];
             enabled = true;
-            followInterfaceStyle = true;
+            followInterfaceStyle = false;
             fontScale = 1;
             gothCornerRadiusOverride = false;
             gothCornerRadiusValue = 12;
@@ -731,7 +731,7 @@
             showOnLastDisplay = true;
             spacing = 4;
             squareCorners = false;
-            transparency = 1;
+            transparency = 0.5;
             visible = true;
             widgetPadding = 8;
             widgetTransparency = 1;
