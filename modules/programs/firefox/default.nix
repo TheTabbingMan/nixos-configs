@@ -320,7 +320,7 @@
                   params = [
                     {
                       name = "channel";
-                      value = "unstable";
+                      value = "26.05";
                     }
                     {
                       name = "query";
@@ -340,7 +340,7 @@
                   params = [
                     {
                       name = "channel";
-                      value = "unstable";
+                      value = "26.05";
                     }
                     {
                       name = "query";
@@ -364,7 +364,7 @@
                     }
                     {
                       name = "channel";
-                      value = "unstable";
+                      value = "26.05";
                     }
                     {
                       name = "query";
