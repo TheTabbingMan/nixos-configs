@@ -505,6 +505,10 @@
 
                Mod+Ctrl+w hotkey-overlay-title="Enable wallpaper engine" { spawn-sh "dms ipc call plugins enable linuxWallpaperEngine"; }
                Mod+Ctrl+Shift+w hotkey-overlay-title="Enable wallpaper engine" { spawn-sh "dms ipc call plugins disable linuxWallpaperEngine"; }
+               Mod+Alt+w hotkey-overlay-title="Wallpaper engine next" { spawn-sh "dms ipc call linuxWallpaperEngine next"; }
+               Mod+Alt+1 hotkey-overlay-title="Wallpaper engine next" { spawn-sh "dms ipc call linuxWallpaperEngine nextMonitor DP-2"; }
+               Mod+Alt+2 hotkey-overlay-title="Wallpaper engine next" { spawn-sh "dms ipc call linuxWallpaperEngine nextMonitor DP-3"; }
+               Mod+Alt+3 hotkey-overlay-title="Wallpaper engine next" { spawn-sh "dms ipc call linuxWallpaperEngine nextMonitor HDMI-A-1"; }
                // Keys consist of modifiers separated by + signs, followed by an XKB key name
                // in the end. To find an XKB name for a particular key, you may use a program
                // like wev.
