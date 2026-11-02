@@ -56,6 +56,13 @@
       nixpkgs-track
     ];
 
+    programs.ghostty = {
+      enable = true;
+      settings = {
+        "background-opacity-cells" = true;
+      };
+    };
+
     dconf.settings = {
       "io/missioncenter/MissionCenter" = {
         performance-sidebar-hidden-graphs = "net-enp8s0;net-ip6tnl0;net-wlp9s0";
