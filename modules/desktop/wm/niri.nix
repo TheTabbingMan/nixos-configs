@@ -486,6 +486,7 @@
                match app-id="io.missioncenter.MissionCenter"
                match app-id="com.chatterino."
                match app-id="org.kde.dolphin"
+               match app-id="anki"
                opacity 0.9
                background-effect {
                    blur true
