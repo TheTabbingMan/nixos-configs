@@ -41,8 +41,8 @@
           ];
       })
       cartridges
-      ryubing
-      eden
+      unstable.ryubing
+      unstable.eden
       prismlauncher
       protonplus
       scopebuddy
