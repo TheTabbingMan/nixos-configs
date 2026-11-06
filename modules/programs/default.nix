@@ -54,6 +54,7 @@
       # video2x
       filezilla
       nixpkgs-track
+      picard
     ];
 
     programs.ghostty = {
