@@ -40,7 +40,6 @@
             mangohud
           ];
       })
-      cartridges
       unstable.ryubing
       unstable.eden
       prismlauncher

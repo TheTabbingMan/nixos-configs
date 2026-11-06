@@ -88,7 +88,6 @@
         ++ mkPaths ".local/share" [
           "Anki2"
           "applications" # For bottles
-          "cartridges"
           "chatterino"
           "containers"
           "direnv/allow"
