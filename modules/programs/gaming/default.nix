@@ -9,7 +9,7 @@
         };
         gamescopeSession.enable = true;
         extraCompatPackages = with pkgs; [
-          proton-ge-bin
+          unstable.proton-ge-bin
         ];
         localNetworkGameTransfers.openFirewall = true;
         remotePlay.openFirewall = true;
@@ -32,7 +32,7 @@
     home.packages = with pkgs; [
       osu-lazer-bin
       protontricks
-      (heroic.override {
+      (unstable.heroic.override {
         extraPkgs = pkgs':
           with pkgs'; [
             gamescope
@@ -43,10 +43,10 @@
       unstable.ryubing
       unstable.eden
       prismlauncher
-      protonplus
+      unstable.protonplus
       scopebuddy
-      lsfg-vk
-      lsfg-vk-ui
+      unstable.lsfg-vk
+      unstable.lsfg-vk-ui
       mangohud
     ];
     services.flatpak.packages = [
