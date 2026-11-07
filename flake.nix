@@ -52,8 +52,7 @@
     niri.url = "github:sodiboo/niri-flake";
 
     dux = {
-      # TODO: Switch back to stable when https://github.com/duxlabs-dev/dux-shell/commit/ceb9f8cee53e4bc509e1c8420d6c9a3005830034 is in stable
-      url = "github:duxlabs-dev/dux-shell";
+      url = "github:duxlabs-dev/dux-shell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dux-plugin-registry = {
