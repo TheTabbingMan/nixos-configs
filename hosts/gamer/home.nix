@@ -21,6 +21,7 @@
       homeModules.persist
       homeModules.programs
       homeModules.gaming
+      homeModules.vr
       homeModules.developer
       homeModules.scripts
       homeModules.niri

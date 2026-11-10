@@ -9,4 +9,9 @@
       package = pkgs.wivrn.override {cudaSupport = true;};
     };
   };
+  flake.homeModules.vr = {pkgs, ...}: {
+    home.packages = with pkgs; [
+      unstable.bs-manager
+    ];
+  };
 }
