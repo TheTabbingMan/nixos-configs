@@ -122,6 +122,7 @@
         "application/vnd.comicbook+zip" = "calibre-ebook-viewer.desktop";
         "text/plain" = "nvim.desktop";
         "application/vnd.microsoft.portable-executable" = "protontricks-launch.desktop";
+        "inode/directory" = "org.kde.dolphin.desktop";
       };
     };
   };
