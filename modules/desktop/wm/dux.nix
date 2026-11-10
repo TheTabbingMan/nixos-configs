@@ -227,7 +227,6 @@
         ];
         displayNameMode = "system";
         currentThemeName = "custom";
-        customThemeFile = "/nix/store/xxkch1mfcd5nwv4xdd95v6dql799jsfw-dankMaterialShell-stylix-color-theme.json";
         registryThemeVariants = {};
         radiusStrength = 38;
         showSeconds = true;
