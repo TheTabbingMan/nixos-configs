@@ -113,6 +113,7 @@
         ]
         ++ mkPaths ".config" [
           "bcompare5"
+          "bs-manager"
           "calibre"
           "chromium"
           "dms"
