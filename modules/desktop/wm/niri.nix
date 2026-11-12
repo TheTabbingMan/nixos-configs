@@ -434,6 +434,14 @@
                default-column-width {}
            }
 
+           window-rule {
+               // This regular expression is intentionally made as specific as possible,
+               // since this is the default config, and we want no false positives.
+               // You can get away with just app-id="wezterm" if you want.
+               match app-id="org.remmina.Remmina"
+               open-maximized true
+           }
+
            // Open the Firefox picture-in-picture player as floating by default.
            window-rule {
                // This app-id regular expression will work for both:
